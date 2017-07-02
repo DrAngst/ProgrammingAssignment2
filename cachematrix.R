@@ -1,3 +1,8 @@
+## makecachematrix function caches the inverse of a matrix using solve().
+ ##cacheSolve uses makecachematrix to calculate the inverse of a matrix. 
+ ##If the inverse was calculated alreadt, it will use the value from the cache;otherwise
+ ##it calculates the inverse with solve().
+
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
   set <- function(y) {
@@ -12,6 +17,8 @@ makeCacheMatrix <- function(x = matrix()) {
        getinv = getinv)
 }
 
+## makeCacheMatrix sets the value of a matrix, gets the value of the matris, and uses solve()
+ ##to calculate the inverse of the matrix.
 cacheSolve <- function(x, ...) {
   inv <- x$getinv()
   if(!is.null(inv)) {
@@ -23,3 +30,6 @@ cacheSolve <- function(x, ...) {
   x$setinv(inv)
   inv
 }
+##makeCacheMatrix uses makeCacheMatrix to calculate inverses for a matrix, but if it has been
+ ##calculated already, it will return the value from makeCacheMatrix.  If not, it wil use 
+ ##solve() to calculate the inverse.
